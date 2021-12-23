@@ -2,7 +2,7 @@
 
 const Header = () => {
 
-
+   
     return (
         <nav className="navbar">
             <h1>eCommerce</h1>
