@@ -1,5 +1,5 @@
 import './Header.scss'
-
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -21,7 +21,7 @@ const Header = () => {
                </div>
             </li>
             <li>
-               <a href="/contacts">Contacts</a>
+               <Link to="/contacts">Contacts</Link>
             </li>
            
                   <li className="cart_container">
