@@ -1,13 +1,9 @@
+import './Items.scss';
+
+
 const ItemsPage = () => {
+   return(
+<h1>Items to display</h1>)
+}
 
-    return (
-       <div className="items_container">
-         
-          Items on this page here
-       </div>
-    );
- };
- 
-
- 
- export default ItemsPage;
+export default ItemsPage
