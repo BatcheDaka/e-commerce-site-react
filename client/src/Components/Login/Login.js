@@ -1,19 +1,56 @@
 import style from './Login.module.scss';
-
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
+import { login } from '../../services/services'
 
 
+const LoginPage = ({
+    history
+}) => {
 
-const LoginPage = () => {
+    const [errorHandler, setErrorHandler] = useState('');
 
+    const onLoginFormSubmitHandler = (e) => {
+        e.preventDefault();
+
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        if (!email || !password) {
+            return setErrorHandler('All fields are required!');
+        }
+
+        login(email, password)
+            .then(res => {
+                if (res.data === 'email') {
+                    setErrorHandler('Incorrect email');
+                    return;
+                } else if (res.data === 'pass') {
+                    setErrorHandler('Incorrect password')
+                    return;
+                }
+
+                const token = res.data.token;
+                const username = res.data.username
+
+                if (token) {
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('username', username);
+                    window.location.reload();
+                }
+
+            })
+            .catch(err => alert(err))
+
+    };
 
     return (
         <div className={style.form_container}>
-            <form className={style.form} >
+            <form className={style.form} onSubmit={onLoginFormSubmitHandler}>
                 <h2>Sign In</h2>
-                <div className={style.errorMsg}></div>
+                <div className={style.errorMsg}>{errorHandler}</div>
                 <label htmlFor="email">Email</label>
                 <div className={style.input_content}>
                     <EmailIcon className={style.icons} />

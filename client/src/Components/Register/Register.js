@@ -1,4 +1,4 @@
-import style from './Register.module.scss'
+import style from './Register.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EmailIcon from '@material-ui/icons/Email';

@@ -1,27 +1,75 @@
 import './App.css';
-import Header from './Components/Header/Header';
-import FooterPage from './Components/Footer/Footer';
-import ContactsPage from './Components/Contacts/Contacts';
+import { Route, useHistory } from 'react-router';
+import { useEffect } from 'react';
+
+import Navigation from './Components/Header/Navigation';
 import ItemsPage from './Components/Items/Items';
 import LoginPage from './Components/Login/Login';
 import RegisterPage from './Components/Register/Register';
-import { Route} from 'react-router';
+import FooterPage from './Components/Footer/Footer';
+import ContactsPage from './Components/Contacts/Contacts';
+import CartPage from './Components/Cart/Cart';
+import ParchasePage from './Components/Purchase/Purchase';
+import ProfilePage from './Components/Profile/Profile';
+import FavoriteItemsPage from './Components/FavoriteItems/FavoriteItems';
+import Spinner from './Components/Spinner/Spinner';
+import { isAuth } from './services/services';
+import { connect } from 'react-redux';
+import { setUser } from './redux/actions'
 
-function App() {
+
+
+function App(props) {
+
+  const history = useHistory();
+
+  useEffect(() => {
+    isAuth()
+      .then(res => {
+        props.setUser(res.data);
+      })
+      .catch((err) => console.log(err));
+
+  }, []);
+
+  if (props.isLoggedIn) {
+    if (history.location.pathname === '/login' || history.location.pathname === '/register') {
+      history.push('/')
+    }
+  }
+
   return (
     <div className="App">
-      
-      <Header />
-     
+
+      <Navigation />
+
       <Route path="/" exact component={ItemsPage} />
-      <Route path="/contacts" component={ContactsPage} />
+      <Route path="/category/:category" component={ItemsPage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
-      
-      
+      <Route path="/spinner" component={Spinner} />
+      <Route path="/contacts" component={ContactsPage} />
+      <Route path="/cart" component={CartPage} />
+      <Route path="/purchase" component={ParchasePage} />
+      <Route path="/profile" exact component={ProfilePage} />
+      <Route path="/profile/favorite-items" component={FavoriteItemsPage} />
+
+
       <FooterPage />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUser: (user) => dispatch(setUser(user))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
