@@ -15,7 +15,7 @@ const Navigation = (props) => {
                <Link to="/">Home</Link>
             </li>
             <li className="dropdown">
-               <a>Category</a>
+              <a>Category</a> 
                <div className="dropdown_content">
                   <Link to="/category/clothes">Clothes</Link>
                   <Link to="/category/shoes">Shoes</Link>

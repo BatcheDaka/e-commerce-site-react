@@ -30,7 +30,7 @@ function App(props) {
       })
       .catch((err) => console.log(err));
 
-  }, []);
+  });
 
   if (props.isLoggedIn) {
     if (history.location.pathname === '/login' || history.location.pathname === '/register') {

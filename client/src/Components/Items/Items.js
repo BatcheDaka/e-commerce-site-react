@@ -21,7 +21,7 @@ const ItemsPage = (props) => {
          })
          .catch(err => alert(err));
          
-   }, [category])
+   })
 
    return (
       <div className="items_container">
