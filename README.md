@@ -6,7 +6,7 @@
 | [General](#general)
 | [Other](#other)
 | [Authentication](#authentication)
-| 
+
 ## 1.Application Structure
 
 The application have:
