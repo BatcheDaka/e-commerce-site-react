@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store'
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:4000' || 'http://ladibas.herokuapp.com';
+axios.defaults.baseURL = 'http://ladibas.herokuapp.com';
 axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
 
 
