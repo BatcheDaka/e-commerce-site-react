@@ -21,6 +21,7 @@ app.get("/user", auth, (req, res) => {
     id = req.user._id;
 });
 
+
 db();
 
 
