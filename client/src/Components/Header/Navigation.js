@@ -9,7 +9,7 @@ const Navigation = (props) => {
 
    return (
       <nav className="navbar">
-         <h1>eCommerce</h1>
+         <h1>Ladibas</h1>
          <ul>
             <li>
                <Link to="/">Home</Link>
