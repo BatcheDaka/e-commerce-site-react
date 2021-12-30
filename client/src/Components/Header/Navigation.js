@@ -9,13 +9,13 @@ const Navigation = (props) => {
 
    return (
       <nav className="navbar">
-         <h1>Ladibas</h1>
+         <h1>eCommerce</h1>
          <ul>
             <li>
                <Link to="/">Home</Link>
             </li>
             <li className="dropdown">
-              <a>Category</a> 
+               <a>Category</a>
                <div className="dropdown_content">
                   <Link to="/category/clothes">Clothes</Link>
                   <Link to="/category/shoes">Shoes</Link>

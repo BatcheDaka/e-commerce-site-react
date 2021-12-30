@@ -1,6 +1,9 @@
 import style from './Contacts.module.scss';
 import { useState } from 'react';
 
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import PhoneIcon from '@material-ui/icons/Phone';
+import EmailIcon from '@material-ui/icons/Email';
 
 
 const ContactsPage = () => {

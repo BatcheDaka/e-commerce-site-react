@@ -35,7 +35,7 @@ const ItemsPage = (props) => {
                      }
                      <img src={item.img} alt="item_img" />
                      <h5>{item.title}</h5>
-                     <p>{item.price} $</p>
+                     <p>{item.price}</p>
                      {props.isLoggedIn
                         ? <button onClick={() => props.addToCart(item._id)}>Add to cart</button>
                         : <button onClick={() => props.history.push('/login')}>Add to cart</button>

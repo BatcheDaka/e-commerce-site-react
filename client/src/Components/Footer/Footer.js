@@ -18,10 +18,10 @@ const FooterPage = () => {
                <EmailIcon className={style.icns} />
             </div>
             <div className={style.info}>
-               <p>Pirotska Street</p>
+               <p>21 Hristo Botev Street</p>
                <h3>Sofia, Bulgaria</h3>
-               <h4>+359 888 123 456</h4>
-               <p>dakata@gmail.com</p>
+               <h4>+1 333 123456</h4>
+               <p>johnDoe@example.com</p>
             </div>
          </div>
          <div className={style.right_side}>

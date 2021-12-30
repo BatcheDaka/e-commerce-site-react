@@ -29,3 +29,4 @@ export const login = (email, password) => {
 export const isAuth = () => {
     return axios.get('/user');
 }
+
