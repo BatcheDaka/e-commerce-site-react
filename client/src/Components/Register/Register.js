@@ -55,10 +55,10 @@ const RegisterPage = ({
                     <LockIcon className={style.icons} />
                     <input id="pass" type="password" name="password" placeholder="Enter your password" />
                 </div>
-                <label htmlFor="pass">Confirm Password</label>
+                <label htmlFor="rePass">Confirm Password</label>
                 <div className={style.input_content}>
                     <LockIcon className={style.icons} />
-                    <input id="pass" type="password" name="rePass" placeholder="Confirm your password" />
+                    <input id="rePass" type="password" name="rePass" placeholder="Confirm your password" />
                 </div>
                 <button>Sign Up</button>
                 <p>Already have an account? <Link to="/login">Login</Link></p>
